@@ -1,0 +1,18 @@
+* resume-template
+resume template in latex
+
+#+BEGIN_SRC sh
+  dl () {
+      xelatex -shell-escape  -interaction=nonstopmode resume.tex    
+  }
+  # To typeset:
+  dl
+  bibtex resume
+  dl
+  dl
+  # view (on a mac):
+  open resume.pdf
+
+  # To remove generated files:
+  git clean -Xf
+#+END_SRC

@@ -1,0 +1,199 @@
+% \documentclass[a4paper,10pt]{article}
+\documentclass[10pt]{article}
+
+% Get HTML via 
+%   pdftohtml -noframes resume.pdf foo.html
+%   pdftohtml -c -i -zoom 2.0 resume.pdf bar.html
+
+\usepackage{resume}
+% \usepackage{path} 
+% \usepackage{url} 
+
+% doc: http://en.wikibooks.org/wiki/LaTeX/Colors
+% and  http://www.december.com/html/spec/colorsvg.html
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% doc: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,  
+    linktoc=all, 
+    linkcolor=blue,  
+    urlcolor=RubineRed,
+}
+
+\pagestyle{empty}
+\topmargin=-0.25in
+\oddsidemargin=-0in
+\evensidemargin=0in
+\textheight=9.50in
+\textwidth=6.5in
+
+% Font fun:
+% \usepackage{courier}
+% \usepackage{times}
+% \usepackage{mathptmx}
+% \usepackage{mathpple}
+% \usepackage{utopia}
+% \usepackage{chancery}
+% \usepackage{charter}
+% \usepackage{mathpazo}
+% \usepackage{helvet}             % Only for \sf font.
+
+% use xelatex:
+\usepackage{fontspec}
+% \setmainfont{Avenir Roman}  % nice
+\setmainfont{Source Sans Pro}  % nice
+% \setmainfont{Courier New}      % for fixed-width text output
+% \setmainfont{Source Sans Pro Light} % thin
+% \setmainfont{Source Sans Variable Regular}  % metric problems
+
+% For ASCII output using pdftotext
+% Use
+%   pdftotext -layout -enc ASCII7 resume.pdf foo.txt
+%   less resume.txt
+%   
+% \oddsidemargin=-0in
+% \evensidemargin=0in
+% \textheight=9.50in
+% \textwidth=5.0in 
+% \renewcommand{\rmdefault}{cmtt} % typewriter
+% \renewcommand{\sfdefault}{cmtt}
+% \renewcommand{\ttdefault}{cmtt}
+% \renewcommand{\href}[2]{#2 [\url{#1}]}
+
+\bibliographystyle{plain}
+% From latex/base/article.cls
+\makeatletter
+\renewenvironment{thebibliography}[1]%%%
+     {% \section*{\refname}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+
+\newcommand{\itemadjust}[0]{\vspace{-7pt}}
+
+\begin{document}
+
+\noindent\rule{\textwidth}{.005in}\vspace{1ex}
+
+\header
+{Michael Hohn}
+{100 address\\
+ here \\
+ }
+% or blank:
+% { \mbox{ }  \\
+%  \mbox{ } \\
+% }
+{%
+\makebox[10mm][l]{Cell:} phone number  \\
+\href{mailto:the email}{the email}
+\vspace{2ex}}
+%
+\noindent\rule{\linewidth}{.005in}
+%
+
+\begin{llist}
+
+\sectiontitle{Professional Summary}
+\noindent{}
+\noindent{}
+First cool category
+\begin{itemize}
+\item Development and implementation of ...
+\item General ...
+\end{itemize}
+
+\noindent{}
+Second cool category
+\begin{itemize}
+\item Static ...
+\item Python ...
+\end{itemize}
+
+\noindent{}
+...
+\begin{itemize}
+\item ...
+\end{itemize}
+
+\sectiontitle{Objectives}
+ make lots of money
+
+\sectiontitle{Skills}
+\begin{items}
+
+\item stuff
+\item more stuff
+  \end{items}
+
+
+\sectiontitle{Experience}
+
+\dates{2020-present}            % Started ...
+\employer{GitHub Inc.}
+\location{San Francisco, CA, USA}
+\jobtitle{CodeQL Analysis Engineer}
+% 
+\noindent
+Consulting services around the use of
+\href{https://github.com/features/security}{GitHub advanced security}, with focus
+on \href{https://codeql.github.com}{CodeQL} for static analysis of software
+vulnerabilities.  We are the team providing the bridge between customer needs and
+requirements and the engineering and product teams.
+
+\noindent
+Description here..
+\begin{itemize}
+\item ...
+\end{itemize}
+
+\dates{2018-2019}               % Started ...
+\employer{other, Inc.}
+\location{San Francisco, CA, USA}
+\jobtitle{Something }
+% 
+\noindent
+Things I did there
+
+\sectiontitle{Publications}
+\nocite{hohn01}
+\bibliography{resume}
+\sectiontitle{Education}
+
+\dates{date}
+\employer{University...}
+\location{somewhere, US or not }
+B.S/M.S/Ph.D. in ..., date
+
+\sectiontitle{References}
+Available on request.  
+\end{llist}
+
+%
+\noindent\rule{\linewidth}{.005in}
+%
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: xetex
+%%% End:

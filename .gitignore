@@ -1,0 +1,8 @@
+.texmf-config/
+auto/
+*.aux
+*.bbl
+*.log
+*.out
+*.pdf
+*.blg
