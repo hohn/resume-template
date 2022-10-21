@@ -1,5 +1,5 @@
 * resume-template
-resume template in latex
+Resume template in latex. Edit =resume.tex=, then:
 
 #+BEGIN_SRC sh
   dl () {
